@@ -12,7 +12,7 @@ var correctImg;
 var ranItem;
 
 var buttonStart;
-var buttonHeight = 75;
+var buttonHeight = 70;
 var buttonSpace = 25;
 var scoreY;
 var scoreEllY;
@@ -55,12 +55,12 @@ function preload () {
 
 function setup() {
 
-	if (displayWidth <= 480) cnv = createCanvas(displayWidth, displayHeight-(displayHeight*0.151));
-	else cnv = createCanvas(320, displayHeight-(displayHeight*0.151));
+	if (displayWidth <= 480) cnv = createCanvas(displayWidth, displayHeight);
+	else cnv = createCanvas(320, displayHeight);
 	middle = (displayWidth - width) / 2;
 	cnv.position(middle);
 
-	buttonStart = cnv.height * 0.55;
+	buttonStart = cnv.height * 0.528;
 	scoreY = cnv.height * 0.045;
 	scoreEllY = scoreY + 15;
 
@@ -72,7 +72,10 @@ function setup() {
 	remainingImgs = [...img];
 
 	setAnswer();
+}
 
+function setLineDash(list) {
+  drawingContext.setLineDash(list);
 }
 
 function draw () {
@@ -80,21 +83,22 @@ function draw () {
 	background(255);
 
 	if (!gameOver) {
+
 		noStroke();
 		textSize(40);
 		textAlign(CENTER);
-		text("CRE SHOH?", cnv.width * 0.5, 100);
+		text("CRE SHOH?", cnv.width * 0.5, cnv.height*0.088);
 		imageMode(CENTER);
-		image(correctImg, cnv.width * 0.5, 300);
+		image(correctImg, cnv.width * 0.5, cnv.height*0.308);
 
-		stroke(0);
-		strokeWeight(2);
-		noFill();
-		ellipse(cnv.width * 0.5, height-scoreEllY, 75, 50);
+		// stroke(0);
+		// strokeWeight(2);
+		// noFill();
+		// ellipse(cnv.width * 0.5, height-scoreEllY, 75, 50);
 
-		noStroke();
-		fill(0);
-		text(score, cnv.width * 0.5, cnv.height-scoreY);
+		// noStroke();
+		// fill(0);
+		// text(score, cnv.width * 0.5, cnv.height-scoreY);
 
 		if (answered && ansTime < 50) ansTime++;
 		else if (answered && ansTime >= 50) buttonChange();
