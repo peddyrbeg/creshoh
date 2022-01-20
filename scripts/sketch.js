@@ -11,11 +11,11 @@ var correctImg;
 
 var ranItem;
 
-var buttonStart = 500;
+var buttonStart;
 var buttonHeight = 75;
 var buttonSpace = 25;
-var scoreY = 50;
-var scoreEllY = scoreY + 15;
+var scoreY;
+var scoreEllY;
 
 var ans1;
 var ans2;
@@ -60,6 +60,10 @@ function setup() {
 	middle = (displayWidth - width) / 2;
 	cnv.position(middle);
 
+	buttonStart = cnv.height * 0.55;
+	scoreY = cnv.height * 0.045;
+	scoreEllY = scoreY + 15;
+
 	c1 = color(25, 153, 242);
 	c2 = color(75, 165, 1);
 	c3 = color(230, 102, 13);
@@ -73,7 +77,7 @@ function setup() {
 
 function draw () {
 
-	background(255);
+	background(255,0,0);
 
 	if (!gameOver) {
 		noStroke();
@@ -99,7 +103,8 @@ function draw () {
 	else {
 		image(jeantDyMie, cnv.width * 0.5, cnv.height * 0.5 - 200);
 		text(score + "/" + items.length * 3, cnv.width * 0.5, cnv.height * 0.5 - 50)
-		text("Jeant dy mie!", cnv.width * 0.5, cnv.height * 0.5 + 20);
+		if (score > 9) text("Jeant dy mie!", cnv.width * 0.5, cnv.height * 0.5 + 20);
+		else text("Prow reesht!", cnv.width * 0.5, cnv.height * 0.5 + 20);
 	}
 
 }
@@ -109,6 +114,7 @@ function setAnswer () {
 	correctAns = "";
 	ranAns = [];
 	bank = 3;
+	ansAct = [true, true, true];
 
 	ranItem = Math.floor(random(0, remainingItems.length));
 	correctAns = remainingItems.splice(ranItem, 1).toString();
@@ -129,7 +135,7 @@ function setAnswer () {
 
 	correctPos == 1 ? ans1 = createButton(correctAns) : ans1 = createButton(ranAns[0]);
 	ans1.size(240, buttonHeight);
-	ans1.position(middle + 40, buttonStart);
+	ans1.position(displayWidth * 0.5 - 120, buttonStart);
 	ans1.style("background", c1);
 	ans1.style("color", "white");
 	ans1.style("font-size", "24px");
@@ -138,7 +144,7 @@ function setAnswer () {
 
 	correctPos == 2 ? ans2 = createButton(correctAns) : ans2 = createButton(ranAns[1]);;
 	ans2.size(240, buttonHeight);
-	ans2.position(middle + 40, buttonStart + buttonHeight + buttonSpace);
+	ans2.position(displayWidth * 0.5 - 120, buttonStart + buttonHeight + buttonSpace);
 	ans2.style("background", c1);
 	ans2.style("color", "white");
 	ans2.style("font-size", "24px");
@@ -147,7 +153,7 @@ function setAnswer () {
 
 	correctPos == 3 ? ans3 = createButton(correctAns) : ans3 = createButton(ranAns[2]);;
 	ans3.size(240, buttonHeight);
-	ans3.position(middle + 40, buttonStart + buttonHeight * 2 + buttonSpace * 2);
+	ans3.position(displayWidth * 0.5 - 120, buttonStart + buttonHeight * 2 + buttonSpace * 2);
 	ans3.style("background", c1);
 	ans3.style("color", "white");
 	ans3.style("font-size", "24px");
