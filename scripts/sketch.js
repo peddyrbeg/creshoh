@@ -106,8 +106,8 @@ function draw () {
 
 	else {
 		image(jeantDyMie, cnv.width * 0.5, cnv.height * 0.25);
-		text(score + "/" + items.length * 3, cnv.width * 0.5, cnv.height * 0.475)
-		if (score > 9) text("Jeant dy mie!", cnv.width * 0.5, cnv.height * 0.55);
+		text(score + "/" + items.length * 3, cnv.width * 0.5, cnv.height * 0.45)
+		if (score > 9) text("Jeant dy mie!", cnv.width * 0.5, cnv.height * 0.525);
 		else text("Prow reesht!", cnv.width * 0.5, cnv.height * 0.55);
 	}
 
