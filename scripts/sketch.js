@@ -105,10 +105,10 @@ function draw () {
 	}
 
 	else {
-		image(jeantDyMie, cnv.width * 0.5, cnv.height * 0.5 - 200);
-		text(score + "/" + items.length * 3, cnv.width * 0.5, cnv.height * 0.5 - 50)
-		if (score > 9) text("Jeant dy mie!", cnv.width * 0.5, cnv.height * 0.5 + 20);
-		else text("Prow reesht!", cnv.width * 0.5, cnv.height * 0.5 + 20);
+		image(jeantDyMie, cnv.width * 0.5, cnv.height * 0.3);
+		text(score + "/" + items.length * 3, cnv.width * 0.5, cnv.height * 0.475)
+		if (score > 9) text("Jeant dy mie!", cnv.width * 0.5, cnv.height * 0.55);
+		else text("Prow reesht!", cnv.width * 0.5, cnv.height * 0.55);
 	}
 
 }
@@ -235,7 +235,7 @@ function finishGame () {
 
 	let retry = createButton("RETRY");
 	retry.size(240, buttonHeight);
-	retry.position(middle + 40, buttonStart + buttonSpace);
+	retry.position(displayWidth * 0.5 - 120, buttonStart + buttonSpace * 4 );
 	retry.style("background", c1);
 	retry.style("color", "white");
 	retry.style("font-size", "24px");
