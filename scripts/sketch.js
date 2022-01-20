@@ -3,7 +3,7 @@ var middle;
 var img = [];
 var pastImg = [];
 
-const items = ["MODDEY", "PEN", "THIE", "KAYT", "GLEASHTAN"];
+const items = ["MODDEY", "PEN", "THIE", "KAYT", "GLEASHTAN", "SOOILLYN", "ARGID", "FOLT"];
 var runningItems = [];
 var remainingItems = [];
 var targetItem;
@@ -47,6 +47,9 @@ function preload () {
 	img[2] = loadImage('assets/thie.png');
 	img[3] = loadImage('assets/kayt.png');
 	img[4] = loadImage('assets/gleashtan.png');
+	img[5] = loadImage('assets/sooillyn.png');
+	img[6] = loadImage('assets/argid.png');
+	img[7] = loadImage('assets/folt.png');
 
 	jeantDyMie = loadImage('assets/jeantDyMie.png');
 
@@ -72,10 +75,7 @@ function setup() {
 	remainingImgs = [...img];
 
 	setAnswer();
-}
 
-function setLineDash(list) {
-  drawingContext.setLineDash(list);
 }
 
 function draw () {
